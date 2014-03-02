@@ -80,7 +80,7 @@ border-right: 1px solid white;*/
 	height:100px;
 	width:100px;
 	padding:10px;
-	font-size:25px;
+	font-size:18px;
 	line-height: 60px;
 	color:#ccc;
 
@@ -104,7 +104,7 @@ border-right: 1px solid white;*/
 
 #videoTab{
 position:absolute;
-margin-left:75px;
+margin-left:100px;
 background-color:rgba(000,000,000,.2);
 	z-index: 1;
 
@@ -119,6 +119,7 @@ background-color:rgba(000,000,000,.2);
 	background-color:rgba(000,000,000,.9) !important;
 	cursor: default;
 	color:#fff;
+	font-size:25px;
 
 }
 
