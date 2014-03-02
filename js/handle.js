@@ -5,7 +5,7 @@ var currentColour = "choose a colour!";
 $(".colourItems").on("click", function(e){
 
 	$(".colourItems").css("border", "0");
-	$(this).css("border", "2px solid white");
+	/*$(this).css("border", "2px solid white");*/
 	currentColour = this.id;
 	colourString = currentColour.substring(0, currentColour.length-6);
 	$("#colourHeading").css("color", $(this).css("background"));
@@ -29,6 +29,22 @@ $("#resetBtn").on("click", function(){
 });
 
 
+$(".colourItems").on("click", function(){
+
+              $("#chooserBorder").css({display:"block"});
+
+            
+
+
+                var position = $(this).position();
+                var div2Width = $(this).css("width");
+                var div2Height = $(this).css("height");
+                $("#chooserBorder").animate({left:position.left, width:div2Width, height:div2Height}, 300);       
+            
+
+});
+
+
 
 /*
 $(".colourItems").draggable();
@@ -37,11 +53,14 @@ $(".colourItems").draggable();
 /*deselect color if clicked anywhere except the colours*/
 
 $(document).click(function(e) {
-	if(!$(event.target).hasClass('colourItems') && !$(event.target).is('#goBtn')){
+	if(!$(event.target).hasClass('colourItems') && !$(event.target).is('#goBtn') && !$(event.target).is('#chooserBorder')){
 		console.log(e.target);
 	    $(".colourItems").css("border", "0");
 	    $("#colourHeading").css("color", "white");
 	    currentColour = "choose a colour!" ;
 		$("#colourHeading").text(currentColour);
+
+		$("#chooserBorder").animate({left:0, width:0, height:0}, 300).fadeOut(300); 
+
 	}
 });
