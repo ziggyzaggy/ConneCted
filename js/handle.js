@@ -37,9 +37,9 @@ $(".colourItems").on("click", function(){
 
 
                 var position = $(this).position();
-                var div2Width = $(this).css("width");
-                var div2Height = $(this).css("height");
-                $("#chooserBorder").animate({left:position.left, width:div2Width, height:div2Height}, 300);       
+                var targetWidth = $(this).css("width");
+                var targetHeight = $(this).css("height");
+                $("#chooserBorder").animate({left:position.left, width:targetWidth, height:targetHeight}, 300);       
             
 
 });
@@ -63,4 +63,15 @@ $(document).click(function(e) {
 		$("#chooserBorder").animate({left:0, width:0, height:0}, 300).fadeOut(300); 
 
 	}
+});
+
+
+
+/*add active class to the clicked tab*/
+
+
+$(".tabs").on("click", function(){
+
+	$(".tabs").siblings().removeClass("activeTab");
+	$(this).addClass("activeTab");
 });
