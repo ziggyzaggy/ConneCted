@@ -84,13 +84,13 @@ border-right: 1px solid white;*/
 	font-size:18px;
 	line-height: 50px;
 	color:#ccc;
+background-color:rgba(000,000,000,.1);
 
-
-		 text-shadow:
+	/*	 text-shadow:
     -1px -1px 0 #333,
     1px -1px 0 #333,
     -1px 1px 0 #333,
-    1px 1px 0 #333; 
+    1px 1px 0 #333; */
 
 
 	-webkit-transition: 250ms linear 0s;
@@ -105,7 +105,7 @@ border-right: 1px solid white;*/
 
 #musicTab{
 	position:absolute;
-	background-color:rgba(000,000,000,.1);
+	
 	
 	z-index: 1;
 }
@@ -114,7 +114,7 @@ border-right: 1px solid white;*/
 position:absolute;
 
 margin-left:140px;
-background-color:rgba(000,000,000,.1);
+
 	z-index: 1;
 
 	
@@ -125,12 +125,13 @@ background-color:rgba(000,000,000,.1);
 
 .activeTab{
 	z-index:3 !important;
-	background-color:rgba(255,255,255,.6) !important;
+	background-color:rgba(255,255,255,.9) !important;
 	cursor: default;
-	color:#fff;
+	color:#333;
 	font-size:25px;
 	height:75px;
 	margin-top:0px;
+
 
 }
 
@@ -185,7 +186,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1a2d2d2d', e
 	width:37vw;
 	height:100px;
 	margin:0 auto;
-
+	z-index:6;
+	
 
 }
 
@@ -202,7 +204,7 @@ margin-bottom: 50px;
 }
 
 .colourItems{
-	
+	z-index:6;
 	width:5.28vw;
 	height:100px;
 	float:left;
@@ -213,6 +215,21 @@ margin-bottom: 50px;
 	-moz-transition: 250ms linear 0s;
 	-o-transition: 250ms linear 0s;
 	transition: 250ms linear 0s;
+	
+}
+
+
+
+#vis{
+	width:74vw;
+	height:105px;
+
+position: absolute;
+z-index:5;
+display:none;
+
+
+
 }
 
 .colourItems:hover{
@@ -266,6 +283,16 @@ margin-bottom: 50px;
 	font-size:20px;
 	border:1px solid #333;
 
+}
+
+
+
+
+#audioWrapper{
+
+	border:1px solid black;
+	width:20vw;
+	margin:0 auto;
 }
 
 
