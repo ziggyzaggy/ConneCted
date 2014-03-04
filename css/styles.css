@@ -221,8 +221,10 @@ margin-bottom: 50px;
 
 
 #vis{
-	width:74vw;
+	width:38vw;
 	height:105px;
+	left:50%;
+	margin-left:-19vw;
 
 position: absolute;
 z-index:5;

@@ -38,10 +38,10 @@ function letsDraw(){
 	fbc_array = new Uint8Array(analyser.frequencyBinCount);
 	analyser.getByteFrequencyData(fbc_array);
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
-	ctx.fillStyle = "#fff";
+	
 	bars =  150;
-	for(var i = 0; i < bars; i++){
-		if(i == 25){
+	for(var i = 0; i < analyser.frequencyBinCount; i++){
+		/*if(i == 25){
 			ctx.fillStyle = "#000";
 		}
 		if(i == 41){
@@ -58,11 +58,12 @@ function letsDraw(){
 		}
 		if(i == 125){
 			ctx.fillStyle = "#AF0205";
-		}
-		
+		}*/
+		/*rainbowy colours*/
+		var hue = i/analyser.frequencyBinCount * 3000;
+  		ctx.fillStyle = 'hsl(' + hue + ', 100%, 50%)';
 
-
-
+  		/*fill the canvas*/
 		x = i *2;
 		barWidth = 1;
 		barHeight = -(fbc_array[i]/2);
