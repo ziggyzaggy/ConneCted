@@ -54,7 +54,7 @@ $(".colourItems").draggable();
 
 $(document).click(function(e) {
 	if(!$(event.target).hasClass('colourItems') && !$(event.target).is('#goBtn') && !$(event.target).is('#chooserBorder')){
-		console.log(e.target);
+		
 	    $(".colourItems").css("border", "0");
 	    $("#colourHeading").css("color", "white");
 	    currentColour = "choose a colour!" ;

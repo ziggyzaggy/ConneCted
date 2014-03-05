@@ -15,7 +15,7 @@ window.addEventListener("load", initPlayer, false);
 function initPlayer(){
 	$("#player").append(audio);
 	player = $("#player");
-	context = new webkitAudioContext();
+	context = new AudioContext();
 	analyser = context.createAnalyser();
 	canvas = document.getElementById("vis");;
 	ctx = canvas.getContext("2d");
@@ -36,42 +36,20 @@ function initPlayer(){
 function letsDraw(){
 	window.requestAnimationFrame(letsDraw);
 	fbc_array = new Uint8Array(analyser.frequencyBinCount);
-	analyser.getByteFrequencyData(fbc_array);
+	analyser.getByteFrequencyData(fbc_array); //get frequency from the analyser node
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	
 	bars =  150;
 	for(var i = 0; i < analyser.frequencyBinCount; i++){
-		/*if(i == 25){
-			ctx.fillStyle = "#000";
-		}
-		if(i == 41){
-			ctx.fillStyle = "#002899";
-		}
-		if(i == 61){
-			ctx.fillStyle = "#006B03";
-		}
-		if(i == 81){
-			ctx.fillStyle = "#C9BF00";
-		}
-		if(i == 101){
-			ctx.fillStyle = "#C01AA8";
-		}
-		if(i == 125){
-			ctx.fillStyle = "#AF0205";
-		}*/
-		/*rainbowy colours*/
-		/*var hue = i/analyser.frequencyBinCount * 3000;
-  		ctx.fillStyle = 'hsl(' + hue + ', 100%, 50%)';*/
-
-  		
+	
 
   		/*fill the canvas*/
 		x = i *2;
 		barWidth = 1;
-		barHeight = -(fbc_array[i]/1.8);
+		barHeight = -(fbc_array[i]/1.8); //calculate height of the bar depending on the loudness of frequency
 
 		//colours react to the  frequency loudness
-		hue = parseInt(500 * (1 - (barHeight / 200)), 10);
+		hue = parseInt(500 * (1 - (barHeight / 200)), 10); //set hue depending on the height of bar(loudness of frequency)
         ctx.fillStyle = 'hsl(' + hue + ',75%,50%)';
 
 		ctx.fillRect(x, canvas.height, barWidth, barHeight);
@@ -101,10 +79,7 @@ function letsDraw(){
 
 
 /*go fullscreen*/
-
-
 $("#fscr").on("click", function(){
-
 
 	var canv = document.getElementById("vis");
 	if(canv.requestFullScreen)
@@ -119,18 +94,17 @@ $("#fscr").on("click", function(){
 });
 
 
-/*listen to escape key, stop the music if in fullscreen and audio is paused(preventes breaking the app if user pauses the audio in fullcsreen mode)*/
+
+
+
+
+
+/*listen to escape key, remove the tip*/
 $(document).keyup(function(e) {
   
   if (e.keyCode == 27) { 
   	$("#fullscreenTip").css("display", "none");//remove tip if escape is pressed
-  		if(audio.paused){
-
-			$("#vis").fadeOut(1000);
-			$("#fscr").fadeOut(1000);
-			$("#colorPalette").animate({opacity:1}, 1000);
-
-	}
+ 
   } 
 });
 
@@ -138,6 +112,60 @@ $(document).keyup(function(e) {
 /*display info on how to exit full screen*/
 $(window).on("click", function(){
 	if(document.webkitFullscreenElement){
-		$("#fullscreenTip").fadeIn(500).delay(2000).fadeOut(1000);
+		if (!$("#fullscreenTip").is(':animated')){
+			$("#fullscreenTip").dequeue().stop().fadeIn(500).delay(1000).fadeOut(500); //dequeue animation if is already animating
+		}
+
+
+
 	}
 });
+
+//pause audio if clicked in fullscreen mode
+$(window).click(function(){
+
+	if(!$(event.target).is('#fscr')){ //prevent pausing when clicking on go fullscreen button
+
+		if(document.webkitFullscreenElement){
+			if(audio.paused){
+				audio.play();
+			}else{
+				audio.pause();
+			}
+		}
+	}
+});
+
+
+
+//exit fullscreen on double click
+$("#vis").dblclick(function() {
+
+	
+	if(document.webkitFullscreenElement){ //exit if in fullscreen
+	$("#fullscreenTip").css("display", "none");//remove tip when exiting full screen mode
+	$("#fullscreenTip").clearQueue(); //clear the animation queue to stop the tip from appearing after a double click
+		  if(document.exitFullscreen) {
+		    document.exitFullscreen();
+		  } else if(document.mozCancelFullScreen) {
+		    document.mozCancelFullScreen();
+		  } else if(document.webkitExitFullscreen) {
+		    document.webkitExitFullscreen();
+		  }
+	}else{	//enter fullscreen on double click of the visualiser if not in fullscreen
+
+		var canv = document.getElementById("vis");
+		if(canv.requestFullScreen)
+	        canv.requestFullScreen();
+	    else if(canv.webkitRequestFullScreen)
+	        canv.webkitRequestFullScreen();
+	    else if(canv.mozRequestFullScreen)
+	        canv.mozRequestFullScreen();
+   
+
+	}
+
+	
+});
+
+
