@@ -60,13 +60,20 @@ function letsDraw(){
 			ctx.fillStyle = "#AF0205";
 		}*/
 		/*rainbowy colours*/
-		var hue = i/analyser.frequencyBinCount * 3000;
-  		ctx.fillStyle = 'hsl(' + hue + ', 100%, 50%)';
+		/*var hue = i/analyser.frequencyBinCount * 3000;
+  		ctx.fillStyle = 'hsl(' + hue + ', 100%, 50%)';*/
+
+  		
 
   		/*fill the canvas*/
 		x = i *2;
 		barWidth = 1;
-		barHeight = -(fbc_array[i]/2);
+		barHeight = -(fbc_array[i]/1.8);
+
+		//colours react to the  frequency loudness
+		hue = parseInt(500 * (1 - (barHeight / 200)), 10);
+        ctx.fillStyle = 'hsl(' + hue + ',75%,50%)';
+
 		ctx.fillRect(x, canvas.height, barWidth, barHeight);
 		
 	}
@@ -77,9 +84,60 @@ function letsDraw(){
 /*show/hide palette and visualiser on play/pause*/
 	audio.addEventListener("play", function () {
 		$("#vis").fadeIn(1000);
+		$("#fscr").fadeIn(1000);
+
 		$("#colorPalette").animate({opacity:0}, 1000);
 }, false);
 	audio.addEventListener("pause", function () {
-		$("#vis").fadeOut(1000);
-		$("#colorPalette").animate({opacity:1}, 1000);
+		if(!document.webkitFullscreenElement){
+
+			$("#vis").fadeOut(1000);
+			$("#fscr").fadeOut(1000);
+			$("#colorPalette").animate({opacity:1}, 1000);
+	
+		}	
+    	
 }, false);
+
+
+/*go fullscreen*/
+
+
+$("#fscr").on("click", function(){
+
+
+	var canv = document.getElementById("vis");
+	if(canv.requestFullScreen)
+        canv.requestFullScreen();
+    else if(canv.webkitRequestFullScreen)
+        canv.webkitRequestFullScreen();
+    else if(canv.mozRequestFullScreen)
+        canv.mozRequestFullScreen();
+   
+ 
+    
+});
+
+
+/*listen to escape key, stop the music if in fullscreen and audio is paused(preventes breaking the app if user pauses the audio in fullcsreen mode)*/
+$(document).keyup(function(e) {
+  
+  if (e.keyCode == 27) { 
+  	$("#fullscreenTip").css("display", "none");//remove tip if escape is pressed
+  		if(audio.paused){
+
+			$("#vis").fadeOut(1000);
+			$("#fscr").fadeOut(1000);
+			$("#colorPalette").animate({opacity:1}, 1000);
+
+	}
+  } 
+});
+
+
+/*display info on how to exit full screen*/
+$(window).on("click", function(){
+	if(document.webkitFullscreenElement){
+		$("#fullscreenTip").fadeIn(500).delay(2000).fadeOut(1000);
+	}
+});
