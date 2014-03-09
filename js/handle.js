@@ -53,7 +53,7 @@ $(".colourItems").draggable();
 /*deselect color if clicked anywhere except the colours*/
 
 $(document).click(function(e) {
-	if(!$(event.target).hasClass('colourItems') && !$(event.target).is('#goBtn') && !$(event.target).is('#chooserBorder')){
+	if(!$(e.target).hasClass('colourItems') && !$(e.target).is('#goBtn') && !$(e.target).is('#chooserBorder')){
 		
 	    $(".colourItems").css("border", "0");
 	    $("#colourHeading").css("color", "white");

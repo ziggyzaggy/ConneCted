@@ -1,44 +1,126 @@
 
 //initialise the audio and get source
 
-var audio = new Audio();
-audio.src='track.mp3';
+/*var audio = new Audio();
+audio.src='track.mp3'; //supply the source of sound here
 audio.controls = true;
 audio.loop = false;
-audio.autoplay = false;
+audio.autoplay = false;*/
 
-var fbc_array, analyser, ctx, canvas, context, source;
+var audio;
+var fbc_array, analyser, ctx, canvas, context, source, animateId;
 var player;
 
 window.addEventListener("load", initPlayer, false);
 
 function initPlayer(){
+
+	
+	/*audio.src="1.mp3"; 
+	audio.controls = true;
+	audio.loop = false;
+	audio.autoplay = false;
+	audio.className = "muzz";
+
+
 	$("#player").append(audio);
 	player = $("#player");
-	context = new AudioContext();
+	/*context = new AudioContext();
 	analyser = context.createAnalyser();
-	canvas = document.getElementById("vis");;
-	ctx = canvas.getContext("2d");
-
 	source = context.createMediaElementSource(audio);
 	source.connect(analyser);
-	analyser.connect(context.destination);
-	letsDraw();
-
-
-
+	analyser.connect(context.destination);*/
+	context = new AudioContext();
+	canvas = document.getElementById("vis");
+	ctx = canvas.getContext("2d");
+	//letsDraw();
 
 
 }
 
 
+var trackName;
+//get the source of clicked track
+ $(".muzz").on("play", function(){
+ 	trackName = $(this).attr("src");
+ 
+ 	console.log("got a source: ", trackName);
+ 	$(".muzz").not(this).each(function(){
+ 		$(this).get(0).pause();
+ 		this.currentTime = 0;
+
+
+ 	});
+ 	
+ 
+audio = null;
+
+
+ 	
+
+ 		console.log("audio null");
+ 		
+ 		audio = event.target;
+ 		console.log(event.target);
+ 		analyser = context.createAnalyser();
+ 		try{
+
+	 		if(source!=null){
+	 			console.log("src not null");
+	 			
+				source = context.createMediaElementSource(audio);
+
+			}else{
+				console.log("src null");
+				source = context.createMediaElementSource(audio);
+			}
+		}catch(err){
+			console.log(err);
+		}
+		source.connect(analyser);
+		analyser.connect(context.destination); 
+	
+ 
+ 
+			$("#vis").fadeIn(1000);
+			$("#fscr").fadeIn(1000);
+			console.log("play");
+			$("#colorPalette").animate({opacity:0}, 1000);
+
+
+		
+		letsDraw();
+	
+
+
+
+});
+
+  $(".muzz").on("pause", function(){
+  			if(!document.webkitFullscreenElement){
+
+			$("#vis").fadeOut(1000);
+			$("#fscr").fadeOut(1000);
+			$("#colorPalette").animate({opacity:1}, 1000);
+	
+		}	
+				
+	 window.cancelAnimationFrame(animateId);	//stop animation from looping		
+				
+});
+
+
 //render the visualisation on the canvas
 function letsDraw(){
-	window.requestAnimationFrame(letsDraw);
+	console.log("draw called");
+	animateId = window.requestAnimationFrame(letsDraw);
 	fbc_array = new Uint8Array(analyser.frequencyBinCount);
 	analyser.getByteFrequencyData(fbc_array); //get frequency from the analyser node
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	ctx.fillStyle="white";
+	ctx.font = "bold 12px Arial";
 	
+	ctx.fillText("currently playing:" + trackName, 10, 10);
 	bars =  150;
 	for(var i = 0; i < analyser.frequencyBinCount; i++){
 	
@@ -59,13 +141,35 @@ function letsDraw(){
 }
 
 
-/*show/hide palette and visualiser on play/pause*/
-	audio.addEventListener("play", function () {
-		$("#vis").fadeIn(1000);
-		$("#fscr").fadeIn(1000);
 
-		$("#colorPalette").animate({opacity:0}, 1000);
-}, false);
+
+/*show/hide palette and visualiser on play/pause*/
+	/*$(".muzz").on("click", function () {
+		if(!this.paused){
+			$("#vis").fadeIn(1000);
+			$("#fscr").fadeIn(1000);
+			console.log("play");
+			$("#colorPalette").animate({opacity:0}, 1000);
+		}else{
+			if(!document.webkitFullscreenElement){
+
+				$("#vis").fadeOut(1000);
+				$("#fscr").fadeOut(1000);
+				$("#colorPalette").animate({opacity:1}, 1000);
+	
+			}
+		}
+});*/
+	/*audio.addEventListener("play", function () {
+		
+
+			$("#vis").fadeIn(1000);
+			$("#fscr").fadeIn(1000);
+			console.log("play");
+			$("#colorPalette").animate({opacity:0}, 1000);
+	
+		});
+
 	audio.addEventListener("pause", function () {
 		if(!document.webkitFullscreenElement){
 
@@ -75,7 +179,7 @@ function letsDraw(){
 	
 		}	
     	
-}, false);
+}, false);*/
 
 
 /*go fullscreen*/
@@ -99,13 +203,20 @@ $("#fscr").on("click", function(){
 
 
 
-/*listen to escape key, remove the tip*/
+/*listen to keyboard, pause on spacebar if in fullscreen, remove tip if escape*/
 $(document).keyup(function(e) {
-  
-  if (e.keyCode == 27) { 
-  	$("#fullscreenTip").css("display", "none");//remove tip if escape is pressed
- 
-  } 
+  	if(e.keyCode == 32 && document.webkitFullscreenElement){
+  		if(audio.paused){
+				audio.play();
+			}else{
+				audio.pause();
+			}
+  	}
+
+	if (e.keyCode == 27) { 
+	  	$("#fullscreenTip").css("display", "none");//remove tip if escape is pressed
+	 
+	} 
 });
 
 
@@ -113,7 +224,7 @@ $(document).keyup(function(e) {
 $(window).on("click", function(){
 	if(document.webkitFullscreenElement){
 		if (!$("#fullscreenTip").is(':animated')){
-			$("#fullscreenTip").dequeue().stop().fadeIn(500).delay(1000).fadeOut(500); //dequeue animation if is already animating
+			$("#fullscreenTip").dequeue().stop().fadeIn(500).delay(2000).fadeOut(500); //dequeue animation if is already animating
 		}
 
 
@@ -122,9 +233,9 @@ $(window).on("click", function(){
 });
 
 //pause audio if clicked in fullscreen mode
-$(window).click(function(){
+/*$(window).click(function(e){
 
-	if(!$(event.target).is('#fscr')){ //prevent pausing when clicking on go fullscreen button
+	if(!$(e.target).is('#fscr')){ //prevent pausing when clicking on go fullscreen button
 
 		if(document.webkitFullscreenElement){
 			if(audio.paused){
@@ -134,7 +245,7 @@ $(window).click(function(){
 			}
 		}
 	}
-});
+});*/
 
 
 

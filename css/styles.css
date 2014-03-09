@@ -5,6 +5,7 @@ body
     
 
     background: #251919 url(../img/bg.jpg) no-repeat center center fixed;
+    
     -moz-background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;
@@ -360,6 +361,7 @@ background:#C01AA8;
 	border-bottom: 1px solid white;
 	position:fixed;
 	top:0;
+	left:15px;
 	display:none;
 	margin-top:50px;
 	
@@ -384,4 +386,11 @@ background:#C01AA8;
   height:40%;
   margin-top:-10%;
   background-color: rgba(000, 000, 000, 1);
+}
+
+.muzz {
+
+	margin-bottom: 5px;
+	width:100%;
+	
 }
