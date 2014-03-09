@@ -90,7 +90,7 @@ audio = null;
 
 		
 		letsDraw();
-	
+		setTrackTip(trackName);
 
 
 
@@ -108,6 +108,10 @@ audio = null;
 	 window.cancelAnimationFrame(animateId);	//stop animation from looping		
 				
 });
+
+function setTrackTip(trackName){
+	$("#trackTip").text("Current: " + trackName );
+}
 
 
 //render the visualisation on the canvas

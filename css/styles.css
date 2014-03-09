@@ -358,7 +358,9 @@ background:#C01AA8;
 
 #fullscreenTip{
 	z-index:2147483647;
-	border-bottom: 1px solid white;
+	
+	color:white; 
+	width:500px;
 	position:fixed;
 	top:0;
 	left:15px;
