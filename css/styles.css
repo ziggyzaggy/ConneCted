@@ -297,6 +297,7 @@ display:none;
 	position: absolute;
 	min-width: 20vw;
 	opacity: 1;
+	pointer-events: auto;
 }
 
 
