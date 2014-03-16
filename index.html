@@ -42,7 +42,7 @@
 
 			
 					 <div style="display:inline-block; background-color:black; height:73px; margin-left:-5px; padding-right:50px; padding-top:10px; padding-left:15px;">
-					 	<p style="display:inline; border-bottom:1px solid white;">Music</p>
+					 	<p id="currentTabTitle" style="display:inline; border-bottom:1px solid white;">Music</p>
 					 </div>
 
 					 <button class = "navbar-toggle" data-toggle="collapse" data-target="#topCollapse" id="topDropBtn">
@@ -116,13 +116,26 @@
 				</div>
 
 
+				<div id="contentWrapper">
+	
+					<div id="audioWrapper">
+							<div id="player"></div>
+							<audio preload="auto" src="1.mp3" controls="" class="muzz"></audio>
+							<audio preload="auto" src="track.mp3" controls="" class="muzz"></audio>
+	
+					</div>
 
-				<div id="audioWrapper">
-					<div id="player"></div>
-					<audio preload="auto" src="1.mp3" controls="" class="muzz"></audio>
-					<audio preload="auto" src="track.mp3" controls="" class="muzz"></audio>
+					<div id="videoWrapper">
+						<iframe width="420" height="315" src="http://www.youtube.com/embed/	Thbsg9i2mZ0?rel=0" frameborder="0" allowfullscreen></iframe>	
+						<iframe width="420" height="315" src="http://www.youtube.com	/embed/	Thbsg9i2mZ0?rel=0" frameborder="0" allowfullscreen></iframe>	
+						<iframe width="420" height="315" src="http://www.youtube.com/embed/	Thbsg9i2mZ0?rel=0" frameborder="0" allowfullscreen></iframe>
+					</div>
 
 				</div>
+
+
+				
+
 
 				<div class="text-center" id="fullscreenTip" style="">
 					<div id = "trackTip" style="font-size:20px; border-bottom:1px solid white;">

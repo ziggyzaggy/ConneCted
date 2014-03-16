@@ -85,7 +85,7 @@ border-right: 1px solid white;*/
 	font-size:18px;
 	line-height: 50px;
 	color:#ccc;
-background-color:rgba(000,000,000,.1);
+	background-color:rgba(000,000,000,.1);
 
 	/*	 text-shadow:
     -1px -1px 0 #333,
@@ -294,13 +294,23 @@ display:none;
 
 
 #audioWrapper{
+	position: absolute;
+	min-width: 20vw;
+	opacity: 1;
+}
 
-	border:1px solid black;
+
+#videoWrapper{
+	position: absolute;
+	opacity: 0;
+}
+
+#contentWrapper{
+	/*border:1px solid black;*/
 	position:relative;
 	width:20vw;
 	margin:0 auto;
 	margin-top:50px;
-	/*z-index:2147483647;*/ /*high z index to make the controls visible in fullscreen*/
 }
 
 

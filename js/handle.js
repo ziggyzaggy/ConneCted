@@ -74,4 +74,17 @@ $(".tabs").on("click", function(){
 
 	$(".tabs").siblings().removeClass("activeTab");
 	$(this).addClass("activeTab");
+
+	var id = this.id;
+	if(id == 'musicTab'){
+		$(audioWrapper).css("opacity", 1);
+		$(videoWrapper).css("opacity", 0);
+		$(currentTabTitle).html("Music");
+	} else {
+		$(audioWrapper).css("opacity", 0);
+		$(videoWrapper).css("opacity", 1);
+		$(currentTabTitle).html("Video");
+	}
+
 });
+
