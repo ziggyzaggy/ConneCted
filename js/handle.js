@@ -1,4 +1,12 @@
 var currentColour = "choose a colour!";
+var coloursArray = new Array();
+	coloursArray[0]="grayColour";
+	coloursArray[1]="blackColour";
+	coloursArray[2]="blueColour";
+	coloursArray[3]="greenColour";
+	coloursArray[4]="yellowColour";
+	coloursArray[5]="pinkColour";
+	coloursArray[6]="redColour";
 
 /*onclick of a color item, choose it*/
 /*write chosen colour to heading*/
@@ -30,19 +38,9 @@ $("#resetBtn").on("click", function(){
 
 
 $("#randomBtn").on("click", function(){
-	var coloursArray = new Array();
-	coloursArray[0]="grayColour";
-	coloursArray[1]="blackColour";
-	coloursArray[2]="blueColour";
-	coloursArray[3]="greenColour";
-	coloursArray[4]="yellowColour";
-	coloursArray[5]="pinkColour";
-	coloursArray[6]="redColour";
-
 	var randomNumber = Math.floor((Math.random()*7));
 	var selectedColour = "#" + coloursArray[randomNumber];
 	$(selectedColour).click();
-	console.log("Click on " + selectedColour);
 
 });
 
@@ -73,7 +71,6 @@ $(".colourItems").draggable();
 $(document).click(function(e) {
 	if(!$(e.target).hasClass('colourItems') && !$(e.target).is('#goBtn') && !$(e.target).is('#chooserBorder') && !$(e.target).is('#randomBtn') ){
 		
-		console.log("Triggering fade effect");
 	    $(".colourItems").css("border", "0");
 	    $("#colourHeading").css("color", "white");
 	    currentColour = "choose a colour!" ;
