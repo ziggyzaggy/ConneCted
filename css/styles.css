@@ -303,6 +303,7 @@ display:none;
 #videoWrapper{
 	position: absolute;
 	opacity: 0;
+	pointer-events: none;
 }
 
 #contentWrapper{

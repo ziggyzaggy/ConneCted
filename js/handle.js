@@ -77,13 +77,18 @@ $(".tabs").on("click", function(){
 
 	var id = this.id;
 	if(id == 'musicTab'){
-		$(audioWrapper).css("opacity", 1);
-		$(videoWrapper).css("opacity", 0);
-		$(currentTabTitle).html("Music");
+		$("#audioWrapper").css("opacity", 1);
+		$("#videoWrapper").css("opacity", 0);
+		$("#audioWrapper").css("pointer-events", "auto");
+		$("#videoWrapper").css("pointer-events", "none");
+		$("#currentTabTitle").html("Music");
+
 	} else {
-		$(audioWrapper).css("opacity", 0);
-		$(videoWrapper).css("opacity", 1);
-		$(currentTabTitle).html("Video");
+		$("#audioWrapper").css("opacity", 0);
+		$("#videoWrapper").css("opacity", 1);
+		$("#audioWrapper").css("pointer-events", "none");
+		$("#videoWrapper").css("pointer-events", "auto");
+		$("#currentTabTitle").html("Video");
 	}
 
 });
