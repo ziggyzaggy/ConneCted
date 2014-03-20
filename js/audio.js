@@ -14,10 +14,7 @@ var player;
 window.addEventListener("load", initPlayer, false);
 
 function initPlayer(){
-$(".muzz").each(function(){
-	 this.currentTime += 1.0;
 
-});
 	
 	/*audio.src="1.mp3"; 
 	audio.controls = true;
