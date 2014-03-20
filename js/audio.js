@@ -14,7 +14,10 @@ var player;
 window.addEventListener("load", initPlayer, false);
 
 function initPlayer(){
+$(".muzz").each(function(){
+	 this.currentTime += 1.0;
 
+});
 	
 	/*audio.src="1.mp3"; 
 	audio.controls = true;
@@ -61,6 +64,7 @@ audio = null;
  		console.log("audio null");
  		
  		audio = event.target;
+
  		console.log(event.target);
  		analyser = context.createAnalyser();
  		try{
