@@ -296,15 +296,16 @@ display:none;
 #audioWrapper{
 	
 	min-width: 20vw;
-	opacity: 1;
-	pointer-events: auto;
+	
+	
 }
 
 
 #videoWrapper{
 	
-	opacity: 0;
-	pointer-events: none;
+	display:none;
+	
+
 }
 
 #contentWrapper{

@@ -13,7 +13,7 @@ var coloursArray = new Array();
 $(".colourItems").on("click", function(e){
 
 	$(".colourItems").css("border", "0");
-	/*$(this).css("border", "2px solid white");*/
+	
 	currentColour = this.id;
 	colourString = currentColour.substring(0, currentColour.length-6);
 	$("#colourHeading").css("color", $(this).css("background"));
@@ -62,9 +62,7 @@ $(".colourItems").on("click", function(){
 
 
 
-/*
-$(".colourItems").draggable();
-*/
+
 
 /*deselect color if clicked anywhere except the colours*/
 
@@ -91,19 +89,20 @@ $(".tabs").on("click", function(){
 	$(".tabs").siblings().removeClass("activeTab");
 	$(this).addClass("activeTab");
 
-	var id = this.id;
-	if(id == 'musicTab'){
-		$("#audioWrapper").css("opacity", 1);
-		$("#videoWrapper").css("opacity", 0);
-		$("#audioWrapper").css("pointer-events", "auto");
-		$("#videoWrapper").css("pointer-events", "none");
+	
+	if($(this).is("#musicTab")){
+	
+		console.log("music");
+		$("#audioWrapper").show(500);
+		$("#videoWrapper").hide(500);
+
 		$("#currentTabTitle").html("Music");
 
 	} else {
-		$("#audioWrapper").css("opacity", 0);
-		$("#videoWrapper").css("opacity", 1);
-		$("#audioWrapper").css("pointer-events", "none");
-		$("#videoWrapper").css("pointer-events", "auto");
+		console.log("video");
+		$("#audioWrapper").hide(500);
+		$("#videoWrapper").show(500);
+
 		$("#currentTabTitle").html("Video");
 	}
 
