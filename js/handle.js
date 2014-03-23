@@ -8,6 +8,36 @@ var coloursArray = new Array();
 	coloursArray[5]="pinkColour";
 	coloursArray[6]="redColour";
 
+	
+	
+/*change background after certain amount of time*/
+	var currentBackground = 0;
+	var backgrounds = [];
+	backgrounds[0] = './img/bg.jpg';
+	backgrounds[1] = './img/bg2.jpg';
+	backgrounds[2] = './img/bg3.jpg';
+
+function changeBackground() {
+    currentBackground++;
+    if(currentBackground > backgrounds.length-1) currentBackground = 0;
+
+    $('.bgContainer').fadeOut(1500,function() {
+        $('.bgContainer').attr('src', backgrounds[currentBackground]);
+        $('.bgContainer').fadeIn(3000);
+    });
+
+
+
+    setTimeout(changeBackground, 5000);
+}
+
+$(document).ready(function() {
+    setTimeout(changeBackground, 5000);        
+});
+
+
+
+
 /*onclick of a color item, choose it*/
 /*write chosen colour to heading*/
 $(".colourItems").on("click", function(e){
