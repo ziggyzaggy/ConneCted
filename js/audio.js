@@ -47,7 +47,7 @@ var trackName;
  	console.log("got a source: ", trackName);
  	$(".muzz").not(this).each(function(){
  		$(this).get(0).pause();
- 		this.currentTime = 0;
+ 		//this.currentTime = 0;
 
 
  	});

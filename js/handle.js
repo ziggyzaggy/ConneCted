@@ -28,26 +28,35 @@ function changeBackground() {
 
 
 
-    setTimeout(changeBackground, 7000);
+    setTimeout(changeBackground, 20000);
 }
 
 $(document).ready(function() {
-    setTimeout(changeBackground, 7000);        
+    setTimeout(changeBackground, 20000);        
 });
 
 
 
 
 /*onclick of a color item, choose it*/
-/*write chosen colour to heading*/
+/*change src of heading*/
 $(".colourItems").on("click", function(e){
 
 	$(".colourItems").css("border", "0");
 	
+	
 	currentColour = this.id;
 	colourString = currentColour.substring(0, currentColour.length-6);
-	$("#colourHeading").css("color", $(this).css("background"));
-	$("#colourHeading").text(colourString);
+	/*$("#colourHeading").css("color", $(this).css("background"));
+	$("#colourHeading").text(colourString);*/
+
+	$("#colourHeading").attr("src", "./img/colors/" + currentColour + ".png");
+	if(colourString =="black" || colourString =="blue" || colourString =="green"){
+		$("#colourHeadingWrapper").css("background-color", "rgba(255,255,255,0.6)")
+	}else{
+		$("#colourHeadingWrapper").css("background-color", "rgba(0,0,0,0.7)")
+	}
+
 });
 
 
@@ -96,9 +105,6 @@ $(".colourItems").on("click", function(){
 
               $("#chooserBorder").css({display:"block"});
 
-            
-
-
                 var position = $(this).position();
                 var targetWidth = $(this).css("width");
                 var targetHeight = $(this).css("height");
@@ -117,9 +123,9 @@ $(document).click(function(e) {
 	if(!$(e.target).hasClass('colourItems') && !$(e.target).is('#goBtn') && !$(e.target).is('#chooserBorder') && !$(e.target).is('#randomBtn') ){
 		
 	    $(".colourItems").css("border", "0");
-	    $("#colourHeading").css("color", "white");
+	  
 	    currentColour = "choose a colour!" ;
-		$("#colourHeading").text(currentColour);
+		$("#colourHeading").attr("src", "./img/colors/choose.png")
 
 		$("#chooserBorder").animate({left:0, width:0, height:0}, 300).fadeOut(300); 
 
