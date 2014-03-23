@@ -28,11 +28,11 @@ function changeBackground() {
 
 
 
-    setTimeout(changeBackground, 20000);
+    setTimeout(changeBackground, 60000);
 }
 
 $(document).ready(function() {
-    setTimeout(changeBackground, 20000);        
+    setTimeout(changeBackground, 60000);        
 });
 
 

@@ -30,6 +30,9 @@ function initPlayer(){
 	source = context.createMediaElementSource(audio);
 	source.connect(analyser);
 	analyser.connect(context.destination);*/
+
+	$("#audioWrapper").fadeIn();
+
 	context = new AudioContext();
 	canvas = document.getElementById("vis");
 	ctx = canvas.getContext("2d");
@@ -103,7 +106,8 @@ audio = null;
 			$("#vis").fadeOut(1000);
 			$("#fscr").fadeOut(1000);
 			$("#colorPalette").animate({opacity:1}, 1000);
-	
+			
+ 		
 		}	
 				
 	 window.cancelAnimationFrame(animateId);	//stop animation from looping		
