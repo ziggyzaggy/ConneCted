@@ -51,8 +51,8 @@ $(".colourItems").on("click", function(e){
 	$("#colourHeading").text(colourString);*/
 
 	$("#colourHeading").attr("src", "./img/colors/" + currentColour + ".png");
-	if(colourString =="black" || colourString =="blue" || colourString =="green"){
-		$("#colourHeadingWrapper").css("background-color", "rgba(255,255,255,0.6)")
+	if(colourString =="black" || colourString =="blue" || colourString =="green" || colourString =="red"){
+		$("#colourHeadingWrapper").css("background-color", "rgba(255,255,255,0.7)")
 	}else{
 		$("#colourHeadingWrapper").css("background-color", "rgba(0,0,0,0.7)")
 	}

@@ -31,7 +31,9 @@ function initPlayer(){
 	source.connect(analyser);
 	analyser.connect(context.destination);*/
 
-	$("#audioWrapper").fadeIn();
+	$("#audioWrapper").show(1000);
+	$(".loading").text("done! play something").animate({opacity: "0.0"}, 6000);
+
 
 	context = new AudioContext();
 	canvas = document.getElementById("vis");

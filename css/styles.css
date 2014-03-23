@@ -37,7 +37,7 @@ body
 
 .header{
 	 margin-top:10vh ;
-	 background-color:rgba(000,000,000,.4);
+	 background-color:rgba(000,000,000,.6);
 
 	 border-radius:0;
 
@@ -171,7 +171,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1a2d2d2d', e
 	margin-top:50px;
 	background-color:rgba(255,255,255,.3);
 	width:100%;
-	
+	color:whitesmoke;
 	height:8vh;
 	
 
@@ -256,11 +256,10 @@ display:none;
     width:100%;
     margin:0 auto;
 
-    -webkit-transition: 250ms linear 0s;
-	-moz-transition: 250ms linear 0s;
-	-o-transition: 250ms linear 0s;
-	transition: 250ms linear 0s;
-
+    webkit-transition: 500ms linear 0s;
+	-moz-transition: 500ms linear 0s;
+	-o-transition: 500ms linear 0s;
+	transition: 500ms linear 0s;
 }
 #colourHeading{
 	color:white;
@@ -288,7 +287,6 @@ display:none;
 .buttonContainer{
 	width:50%;
 	height:7vh;
-	
 	margin:0 auto;
 
 
@@ -334,11 +332,20 @@ display:none;
 	position:relative;
 	width:20vw;
 	margin:0 auto;
-	margin-top:50px;
+	margin-top:30px;
 }
 
 
+.loading{
 
+	color:black;
+	font-size: 40px;
+	width:100%;
+	margin-top:10px;
+	background-color:rgba(255,255,255,0.5);
+
+
+}
 
 /*palette colours*/
 
