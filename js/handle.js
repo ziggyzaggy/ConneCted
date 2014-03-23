@@ -28,12 +28,12 @@ function changeBackground() {
 
 
 
-    setTimeout(changeBackground, 5000);
+    setTimeout(changeBackground, 15000);
 }
 
-$(document).ready(function() {
-    setTimeout(changeBackground, 5000);        
-});
+/*$(document).ready(function() {
+    setTimeout(changeBackground, 15000);        
+});*/
 
 
 
@@ -66,10 +66,26 @@ $("#resetBtn").on("click", function(){
 
 });
 
-
+//choose a randonm colour
 $("#randomBtn").on("click", function(){
-	var randomNumber = Math.floor((Math.random()*7));
-	var selectedColour = "#" + coloursArray[randomNumber];
+	var randomNumber;
+	var selectedColour;
+	var prev = null;
+
+		if(prev==null){
+			prev = randomNumber = Math.floor((Math.random()*coloursArray.length));
+			
+		}else{
+			
+			do{
+				
+				randomNumber = Math.floor((Math.random()*coloursArray.length));
+				
+			}while(prev == randomNumber); //keep getting new random number if its the same as previous
+		}
+		selectedColour = "#" + coloursArray[randomNumber];
+		prev = randomNumber;
+		console.log(randomNumber);
 	$(selectedColour).click();
 
 });
