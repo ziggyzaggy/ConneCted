@@ -28,12 +28,12 @@ function changeBackground() {
 
 
 
-    setTimeout(changeBackground, 15000);
+    setTimeout(changeBackground, 7000);
 }
 
-/*$(document).ready(function() {
-    setTimeout(changeBackground, 15000);        
-});*/
+$(document).ready(function() {
+    setTimeout(changeBackground, 7000);        
+});
 
 
 
@@ -67,10 +67,11 @@ $("#resetBtn").on("click", function(){
 });
 
 //choose a randonm colour
+var prev = null;
 $("#randomBtn").on("click", function(){
 	var randomNumber;
 	var selectedColour;
-	var prev = null;
+	
 
 		if(prev==null){
 			prev = randomNumber = Math.floor((Math.random()*coloursArray.length));
