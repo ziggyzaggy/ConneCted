@@ -47,7 +47,7 @@ body
 
 
 .header{
-	 margin-top:10vh ;
+	 margin-top: 5vh;
 	 background-color:rgba(000,000,000,.6);
 
 	 border-radius:0;
@@ -159,7 +159,7 @@ margin-left:140px;
 .content{
 
 	
-	margin-top:12vh;
+	margin-top: 3vh;
 	/*background-color:rgba(255,255,255,.1);*/
 	width:100%;
 	color:white;

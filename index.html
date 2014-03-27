@@ -16,15 +16,15 @@
 
 <body>
 		<div id="bgPreload">
-			<img src = "./img/bg.jpg">
-			<img src = "./img/bg2.jpg">
-			<img src = "./img/bg3.jpg">
+			<img src = "./img/bg.jpg" alt="Background1">
+			<img src = "./img/bg2.jpg" alt="Background2">
+			<img src = "./img/bg3.jpg" alt="Background3">
 		</div>
 
-		<img class="bgContainer" src = "./img/bg.jpg">
+		<img class="bgContainer" src = "./img/bg.jpg" alt="Background">
 	
 <noscript>
-	<style type="text/css">
+	<style scoped>
         body {visibility:hidden;}
         .yarin{
 
@@ -89,18 +89,26 @@
         <h4 class="modal-title" id="myModalLabel">Help Page</h4>
       </div>
       <div class="modal-body">
-        <li>KEY HELP</li>
+      	<p>Key Help</p>
+        <ul>
 		<li>There are two tabs to choose from (Music & Video)</li>
-		<li>Colour help</li>
+		</ul>
+		<p>Colour Help</p>
+		<ul>
 		<li>Choose a colour from the colour picker to play a song</li>
-		<li>Navigation help</li>
+		</ul>
+		<p>Navigation help</p>
+		<ul>
 		<li>Pick a colour</li>
 		<li>Press Lets Rock</li>
 		<li>Choose a song from the selection</li>
-		<li>Visualisation help</li>
+		</ul>
+		<p>Visualisation help</p>
+		<ul>
 		<li>The colour palette will turn into an equalizer when a song is played</li>
 		<li>Double click on equalizer to go fullscreen</li>
-		<li>Clikc anywhere on the body of the apge to cancel colour selection</li>
+		<li>Click anywhere on the body of the apge to cancel colour selection</li>
+		</ul>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -127,9 +135,7 @@
 			</div>
 			
 
-
-
-			<div id="colourHeadingWrapper"><img id="colourHeading" src="./img/colors/choose.png"></img></div>
+			<div id="colourHeadingWrapper"><img id="colourHeading" src="./img/colors/choose.png" alt="colorHeader"></div>
 			<div class="controlWrapper">
 				<canvas id="vis"></canvas>
 
@@ -173,9 +179,7 @@
 					</div>
 
 					<div id="videoWrapper">
-						<iframe width="420" height="315" src="http://www.youtube.com/embed/	Thbsg9i2mZ0?rel=0" frameborder="0" allowfullscreen></iframe>	
-						<iframe width="420" height="315" src="http://www.youtube.com	/embed/	Thbsg9i2mZ0?rel=0" frameborder="0" allowfullscreen></iframe>	
-						<iframe width="420" height="315" src="http://www.youtube.com/embed/	Thbsg9i2mZ0?rel=0" frameborder="0" allowfullscreen></iframe>
+						<iframe width="420" height="315" src="http://www.youtube.com/embed/Thbsg9i2mZ0?rel=0" frameborder="0" allowfullscreen></iframe>
 					</div>
 
 				</div>
@@ -196,12 +200,12 @@
 
 		<footer class="footer">
 			<p style="dispaly:inline; float:right;">Connected  all rights reserved &copy;</p>
-				<img src="./img/twit4.png"> Twitter: ConnectedMusicc <img src="./img/mail1.png"> E-mail: connectedmusic@housemail.com 
+				<img src="./img/twit4.png" alt="TwitterLink"> Twitter: ConnectedMusicc <img src="./img/mail1.png" alt="ContactEmail"> E-mail: connectedmusic@housemail.com 
 		<br>
 
 			Powered by:
-			<a href="http://developers.soundcloud.com/"><img src="./img/soundcloud1.png">  SoundCloud</a>
-			<a href="https://developers.google.com/youtube/"><img src="./img/youtube1.png"> YouTube</a>
+			<a href="http://developers.soundcloud.com/"><img src="./img/soundcloud1.png" alt="SoundCloudLink">  SoundCloud</a>
+			<a href="https://developers.google.com/youtube/"><img src="./img/youtube1.png" alt="YoutubeLink"> YouTube</a>
 		
 		</footer>
 
@@ -210,7 +214,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="js/bootstrap.js"></script>
 
-<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.min.css"></script>
+
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script src="js/AudioContextMonkeyPatch.js"></script>
 <script src="js/handle.js"></script>
