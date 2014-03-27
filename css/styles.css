@@ -14,12 +14,23 @@ body
 }
 
 
+
+
+
+
+
+#bgPreload{
+
+	display:none;
+}
+
 .bgContainer{
 	position:fixed;
 	z-index: -1;
 	width:100vw;
 	height:100%;
 	top:0;
+	transition: opacity 1500ms ease-in-out;
 }
 
 .contain{
@@ -95,11 +106,7 @@ border-bottom: 1px solid white;
 	color:#ccc;
 	background-color:rgba(000,000,000,.5);
 
-	/*	 text-shadow:
-    -1px -1px 0 #333,
-    1px -1px 0 #333,
-    -1px 1px 0 #333,
-    1px 1px 0 #333; */
+	
 
 
 	-webkit-transition: 250ms linear 0s;
@@ -144,6 +151,11 @@ margin-left:140px;
 
 }
 
+
+#alert{
+	display:none;
+}
+
 .content{
 
 	
@@ -178,7 +190,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1a2d2d2d', e
 
 
 }
-
+.footer a:hover{
+	color:whitesmoke;
+}
 
 #chooserBorder{
 	position:absolute; 
@@ -202,7 +216,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1a2d2d2d', e
 
 
 .controlWrapper{
-
 background-color:rgba(000,000,000,.6);
 width:100%;
 padding:1.5vh;
@@ -294,10 +307,26 @@ display:none;
 
 
 
+.buttonContainer #goBtn{
+	float:right;
+}
+
+
+/*media query to not let the Go button float to the right on smaller screen sizes (float right with small screen sizes looks ugly, really ugly)*/
+@media (min-width: 560px) {
 	.buttonContainer #goBtn{
-		float:right;
+			float:right;
 		}
 
+}
+
+@media (max-width: 480px) {
+	.buttonContainer #goBtn{
+			float:none;
+		}
+
+	
+}
 
 
 .wideBtn{

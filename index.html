@@ -15,11 +15,16 @@
 	</head>
 
 <body>
+		<div id="bgPreload">
+			<img src = "./img/bg.jpg">
+			<img src = "./img/bg2.jpg">
+			<img src = "./img/bg3.jpg">
+		</div>
 
 		<img class="bgContainer" src = "./img/bg.jpg">
 	
 <noscript>
-<style type="text/css">
+	<style type="text/css">
         body {visibility:hidden;}
         .yarin{
 
@@ -29,8 +34,8 @@
         	text-align:center;
         	color:white;
         }
-  </style>
-<div class="yarin">Life's too short. It's 2012 (2014) - Enable javascript or go home –  Yarin (c) </div>
+ 	</style>
+	<div class="yarin">Life's too short. It's 2012 (2014) - Enable javascript or go home –  Yarin (c) </div>
 </noscript>
 
 
@@ -66,19 +71,52 @@
 			<div class="collapse navbar-collapse" id="topCollapse">
 				<ul class="nav navbar-nav navbar-right" id="topbar">
 					<li class="active"><a href="index.html">Home</a></li>
-					<li><a href="#">Help</a></li>
+					<li class="active"> <a href="#" data-toggle="modal" data-target="#myModal">Help</a></li>
 				</ul>
 			
 			</div>
-					
-		
-	
-
-
 
 		</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Help Page</h4>
+      </div>
+      <div class="modal-body">
+        <li>KEY HELP</li>
+		<li>There are two tabs to choose from (Music & Video)</li>
+		<li>Colour help</li>
+		<li>Choose a colour from the colour picker to play a song</li>
+		<li>Navigation help</li>
+		<li>Pick a colour</li>
+		<li>Press Lets Rock</li>
+		<li>Choose a song from the selection</li>
+		<li>Visualisation help</li>
+		<li>The colour palette will turn into an equalizer when a song is played</li>
+		<li>Double click on equalizer to go fullscreen</li>
+		<li>Clikc anywhere on the body of the apge to cancel colour selection</li>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 		
 		<div class="content">
+			<div class="alert alert-danger alert-dismissable" id="alert">
+			  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			  <strong>Hey!</strong> Looks like you are not using a <strong>webkit</strong> based browser, this app was tested and developed on <strong>chrome</strong> browser, for best experience use <a href="http://www.google.com/intl/en_uk/chrome/browser/">that</a> instead 
+			</div>
 			<div class="tabContainer">
 				<div class="tabs activeTab" id="musicTab">
 					Music
@@ -129,9 +167,9 @@
 							<div id="player"></div>
 							<audio preload="none" src="https://soundcloud.com/itsmogul/zedd-find-you-mogul-remix-free/download/s-kN18N" controls="" class="muzz"></audio>
 							<audio preload="none" src="http://soundcloud.com/hantise/hans-zimmer-12-years-a-slave/download" controls="" class="muzz"></audio>
-							<audio preload="auto" src="https://api.soundcloud.com/tracks/139926691/download?client_id=b45b1aa10f1ac2941910a7f0d10f8e28&oauth_token=1-16343-46075213-ea719db1deb686d" controls="" class="muzz"></audio>
+							<audio preload="none" src="https://api.soundcloud.com/tracks/85453452/download?client_id=b45b1aa10f1ac2941910a7f0d10f8e28&oauth_token=1-16343-46075213-ea719db1deb686d" controls="" class="muzz"></audio>
 							
-							<audio preload="auto" src="https://api.soundcloud.com/tracks/140549846/download?client_id=b45b1aa10f1ac2941910a7f0d10f8e28&oauth_token=1-16343-46075213-ea719db1deb686d" controls="" class="muzz"></audio>
+							<audio preload="none" src="https://dl.dropboxusercontent.com/sh/ucgb2340c7k8qkz/UErFdTydfp/Alex%20Weit%20vs.%20Bebe%20Rexha%20-%20Take%20me%20Home%20%28Avenjo%20Bootleg%29.mp3?dl=1&token_hash=AAE3LSzeYupRp5u6MMa_Y_IIrbIcQJlOela9oNWK0kKRdg" controls="" class="muzz"></audio>
 					</div>
 
 					<div id="videoWrapper">
@@ -157,8 +195,15 @@
 		</div>
 
 		<footer class="footer">
-			Connected  all rights reserved(c)
-		</footer>	
+			<p style="dispaly:inline; float:right;">Connected  all rights reserved &copy;</p>
+				<img src="./img/twit4.png"> Twitter: ConnectedMusicc <img src="./img/mail1.png"> E-mail: connectedmusic@housemail.com 
+		<br>
+
+			Powered by:
+			<a href="http://developers.soundcloud.com/"><img src="./img/soundcloud1.png">  SoundCloud</a>
+			<a href="https://developers.google.com/youtube/"><img src="./img/youtube1.png"> YouTube</a>
+		
+		</footer>
 
 	</div>
 

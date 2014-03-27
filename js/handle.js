@@ -12,27 +12,36 @@ var coloursArray = new Array();
 	
 /*change background after certain amount of time*/
 	var currentBackground = 0;
-	var backgrounds = [];
-	backgrounds[0] = './img/bg.jpg';
-	backgrounds[1] = './img/bg2.jpg';
-	backgrounds[2] = './img/bg3.jpg';
+	 var backgrounds = [];
+    backgrounds[0] = './img/bg.jpg';
+    backgrounds[1] = './img/bg2.jpg';
+    backgrounds[2] = './img/bg3.jpg';
 
 function changeBackground() {
     currentBackground++;
     if(currentBackground > backgrounds.length-1) currentBackground = 0;
 
-    $('.bgContainer').fadeOut(1500,function() {
-        $('.bgContainer').attr('src', backgrounds[currentBackground]);
-        $('.bgContainer').fadeIn(3000);
-    });
+$('.bgContainer').css('opacity', 0);
 
+setTimeout(function() {
+    $('.bgContainer').attr('src', backgrounds[currentBackground]);
+    $('.bgContainer').css('opacity', 1);
+}, 1500);
 
 
     setTimeout(changeBackground, 60000);
 }
 
 $(document).ready(function() {
-    setTimeout(changeBackground, 60000);        
+	//kick off background change in 60 seconds after the page loads
+    setTimeout(changeBackground, 60000); 
+
+
+    //check if browser is webkit based
+    var isWebkit = 'WebkitAppearance' in document.documentElement.style   
+    if(!isWebkit){
+    	$("#alert").css("display", "block");
+    }
 });
 
 
@@ -47,8 +56,7 @@ $(".colourItems").on("click", function(e){
 	
 	currentColour = this.id;
 	colourString = currentColour.substring(0, currentColour.length-6);
-	/*$("#colourHeading").css("color", $(this).css("background"));
-	$("#colourHeading").text(colourString);*/
+
 
 	$("#colourHeading").attr("src", "./img/colors/" + currentColour + ".png");
 	if(colourString =="black" || colourString =="blue" || colourString =="green" || colourString =="red"){
@@ -70,10 +78,6 @@ $("#goBtn").on("click", function(){
 	}
 });
 
-$("#resetBtn").on("click", function(){
-
-
-});
 
 //choose a randonm colour
 var prev = null;

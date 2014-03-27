@@ -48,12 +48,15 @@ var trackName;
 //get the source of clicked track
  $(".muzz").on("play", function(){
  	trackName = $(this).attr("src");
- 
+ 	
+ 	//stop other tracks
  	console.log("got a source: ", trackName);
  	$(".muzz").not(this).each(function(){
  		$(this).get(0).pause();
- 		//this.currentTime = 0;
+ 		if(this.currentTime != 0){
+ 			this.currentTime = 0;
 
+ 		}
 
  	});
  	
@@ -63,7 +66,6 @@ audio = null;
 
  	
 
- 		console.log("audio null");
  		
  		audio = event.target;
 
@@ -72,12 +74,12 @@ audio = null;
  		try{
 
 	 		if(source!=null){
-	 			console.log("src not null");
+	 		
 	 			
 				source = context.createMediaElementSource(audio);
 
 			}else{
-				console.log("src null");
+			
 				source = context.createMediaElementSource(audio);
 			}
 		}catch(err){
@@ -154,43 +156,6 @@ function letsDraw(){
 
 
 
-/*show/hide palette and visualiser on play/pause*/
-	/*$(".muzz").on("click", function () {
-		if(!this.paused){
-			$("#vis").fadeIn(1000);
-			$("#fscr").fadeIn(1000);
-			console.log("play");
-			$("#colorPalette").animate({opacity:0}, 1000);
-		}else{
-			if(!document.webkitFullscreenElement){
-
-				$("#vis").fadeOut(1000);
-				$("#fscr").fadeOut(1000);
-				$("#colorPalette").animate({opacity:1}, 1000);
-	
-			}
-		}
-});*/
-	/*audio.addEventListener("play", function () {
-		
-
-			$("#vis").fadeIn(1000);
-			$("#fscr").fadeIn(1000);
-			console.log("play");
-			$("#colorPalette").animate({opacity:0}, 1000);
-	
-		});
-
-	audio.addEventListener("pause", function () {
-		if(!document.webkitFullscreenElement){
-
-			$("#vis").fadeOut(1000);
-			$("#fscr").fadeOut(1000);
-			$("#colorPalette").animate({opacity:1}, 1000);
-	
-		}	
-    	
-}, false);*/
 
 
 /*go fullscreen*/
@@ -243,20 +208,7 @@ $(window).on("click", function(){
 	}
 });
 
-//pause audio if clicked in fullscreen mode
-/*$(window).click(function(e){
 
-	if(!$(e.target).is('#fscr')){ //prevent pausing when clicking on go fullscreen button
-
-		if(document.webkitFullscreenElement){
-			if(audio.paused){
-				audio.play();
-			}else{
-				audio.pause();
-			}
-		}
-	}
-});*/
 
 
 
