@@ -15,17 +15,22 @@
 	</head>
 
 <body>
+		<!--preload background images-->
 		<div id="bgPreload">
 			<img src = "./img/bg.jpg" alt="Background1">
 			<img src = "./img/bg2.jpg" alt="Background2">
 			<img src = "./img/bg3.jpg" alt="Background3">
 		</div>
 
+		<!-- background image-->
 		<img class="bgContainer" src = "./img/bg.jpg" alt="Background">
-	
+
+<!--prompt users to turn on javascript if it is off-->
 <noscript>
 	<style scoped>
-        body {visibility:hidden;}
+        body {
+        	background: #251919 url(./img/bg3.jpg) no-repeat center center fixed;
+        	visibility:hidden;}
         .yarin{
 
         	margin-top:200px;
@@ -53,6 +58,7 @@
 					 	<p id="currentTabTitle" style="display:inline; border-bottom:1px solid white;">Music</p>
 					 </div>
 
+					 <!--button that is displayed on smaller screen sizes to expand header-->
 					 <button class = "navbar-toggle" data-toggle="collapse" data-target="#topCollapse" id="topDropBtn">
 						<span style="background-color:white;" class="icon-bar"></span>
 						<span style="background-color:white;" class="icon-bar"></span>
@@ -67,7 +73,7 @@
 				
 			
 			
-			
+			<!--header navigation, collapsable(responsive)-->
 			<div class="collapse navbar-collapse" id="topCollapse">
 				<ul class="nav navbar-nav navbar-right" id="topbar">
 					<li class="active"><a href="index.html">Home</a></li>
@@ -95,13 +101,13 @@
 		</ul>
 		<p>Colour Help</p>
 		<ul>
-		<li>Choose a colour from the colour picker to play a song</li>
+		<li>Choose a colour from the colour picker to receive a list of media</li>
 		</ul>
 		<p>Navigation help</p>
 		<ul>
 		<li>Pick a colour</li>
 		<li>Press Lets Rock</li>
-		<li>Choose a song from the selection</li>
+		<li>Choose a song/video from the selection</li>
 		</ul>
 		<p>Visualisation help</p>
 		<ul>
@@ -121,10 +127,14 @@
 
 		
 		<div class="content">
+
+			<!--a message that comes up if user isn't using chrome-->
 			<div class="alert alert-danger alert-dismissable" id="alert">
 			  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 			  <strong>Hey!</strong> Looks like you are not using a <strong>webkit</strong> based browser, this app was tested and developed on <strong>chrome</strong> browser, for best experience use <a href="http://www.google.com/intl/en_uk/chrome/browser/">that</a> instead 
 			</div>
+
+			<!--tabs music and video-->
 			<div class="tabContainer">
 				<div class="tabs activeTab" id="musicTab">
 					Music
@@ -134,14 +144,18 @@
 				</div>
 			</div>
 			
-
+			<!--div that contains colourheading images-->
 			<div id="colourHeadingWrapper"><img id="colourHeading" src="./img/colors/choose.png" alt="colorHeader"></div>
+
 			<div class="controlWrapper">
+
+				<!--canvas where the equaliser is drawn on, when music is playing-->
 				<canvas id="vis"></canvas>
 
 				<div id="chooserBorder">
 				</div>
 
+				<!--colour pallete-->
 				<div class="colorPicker" id="colorPalette">
 					<div class="colourItems" id="grayColour"></div>
 					<div class="colourItems" id="blackColour"></div>
@@ -149,10 +163,7 @@
 					<div class="colourItems" id="greenColour"></div>
 					<div class="colourItems" id="yellowColour"></div>
 					<div class="colourItems" id="pinkColour"></div>
-					<div class="colourItems" id="redColour"></div>
-
-					
-					
+					<div class="colourItems" id="redColour"></div>	
 				</div>
 				
 			</div>
@@ -160,24 +171,26 @@
 				<div class="buttonContainer">
 
 					<button class="btn btn-danger wideBtn" id="resetBtn">Reset</button>  
-					
 					<button class="btn btn-primary wideBtn" id="randomBtn">Randomize</button>
 					<button class="btn btn-primary wideBtn" id="fscr">Go fullscreen</button>
 					<button class="btn btn-primary wideBtn" id="goBtn">Lets Rock!</button>
 				</div>
 
+				<!--message showing that elements are loading-->
 				<div class="text-center loading">Loading the <a href="http://www.urbandictionary.com/define.php?term=awesomeness">Awesomeness!</a></div>
+
 				<div id="contentWrapper">
 					
+					<!--music container-->
 					<div id="audioWrapper">
 							<div id="player"></div>
 							<audio preload="none" src="https://soundcloud.com/itsmogul/zedd-find-you-mogul-remix-free/download/s-kN18N" controls="" class="muzz"></audio>
 							<audio preload="none" src="http://soundcloud.com/hantise/hans-zimmer-12-years-a-slave/download" controls="" class="muzz"></audio>
 							<audio preload="none" src="https://api.soundcloud.com/tracks/85453452/download?client_id=b45b1aa10f1ac2941910a7f0d10f8e28&oauth_token=1-16343-46075213-ea719db1deb686d" controls="" class="muzz"></audio>
-							
 							<audio preload="none" src="https://dl.dropboxusercontent.com/sh/ucgb2340c7k8qkz/UErFdTydfp/Alex%20Weit%20vs.%20Bebe%20Rexha%20-%20Take%20me%20Home%20%28Avenjo%20Bootleg%29.mp3?dl=1&token_hash=AAE3LSzeYupRp5u6MMa_Y_IIrbIcQJlOela9oNWK0kKRdg" controls="" class="muzz"></audio>
 					</div>
 
+					<!--video container-->
 					<div id="videoWrapper">
 						<iframe width="420" height="315" src="http://www.youtube.com/embed/Thbsg9i2mZ0?rel=0" frameborder="0" allowfullscreen></iframe>
 					</div>
@@ -187,8 +200,8 @@
 
 				
 
-
-				<div class="text-center" id="fullscreenTip" style="">
+				<!--a tip shown in fullscreen-->
+				<div class="text-center" id="fullscreenTip">
 					<div id = "trackTip" style="font-size:20px; border-bottom:1px solid white;">
 
 					</div>
@@ -199,7 +212,7 @@
 		</div>
 
 		<footer class="footer">
-			<p style="dispaly:inline; float:right;">Connected  all rights reserved &copy;</p>
+			<p style="dispaly:inline; float:right;">&copy; Connected  all rights reserved </p>
 				<img src="./img/twit4.png" alt="TwitterLink"> Twitter: ConnectedMusicc <img src="./img/mail1.png" alt="ContactEmail"> E-mail: connectedmusic@housemail.com 
 		<br>
 
@@ -213,8 +226,6 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="js/bootstrap.js"></script>
-
-
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script src="js/AudioContextMonkeyPatch.js"></script>
 <script src="js/handle.js"></script>

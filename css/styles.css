@@ -2,14 +2,6 @@ body
 {
 	margin:0;
 	padding:0;
-    
-
-   /*background: #251919 url(../img/bg.jpg) no-repeat center center fixed;
-    
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;*/
  	background: rgba(0, 0, 0,.97);
 }
 
@@ -34,14 +26,10 @@ body
 }
 
 .contain{
-/*	width:65vw;*/
+
 	width:75vw;
-
 	height:100vh;
-	margin:0 auto;
-	
-
-	
+	margin:0 auto;	
 
 }
 
@@ -49,34 +37,21 @@ body
 .header{
 	 margin-top: 5vh;
 	 background-color:rgba(000,000,000,.6);
-
 	 border-radius:0;
-
-	
-	
 }
 
 .navbar-nav > li > a {
-
 padding:25px;
-
 border-bottom: 1px solid white;
-
-
 }
 
 #branding{
 	background-color: rgb(69, 129, 255);
-
 }
 
 
 .header a{
 	color:white;
-
-
-
-
 	-webkit-transition: 250ms linear 0s;
 	-moz-transition: 250ms linear 0s;
 	-o-transition: 250ms linear 0s;
@@ -106,14 +81,10 @@ border-bottom: 1px solid white;
 	color:#ccc;
 	background-color:rgba(000,000,000,.5);
 
-	
-
-
 	-webkit-transition: 250ms linear 0s;
 	-moz-transition: 250ms linear 0s;
 	-o-transition: 250ms linear 0s;
 	transition: 250ms linear 0s;
-
 	cursor:pointer;
 
 }
@@ -121,19 +92,13 @@ border-bottom: 1px solid white;
 
 #musicTab{
 	position:absolute;
-	
-	
 	z-index: 1;
 }
 
 #videoTab{
 position:absolute;
-
 margin-left:140px;
-
-	z-index: 1;
-
-	
+z-index: 1;	
 }
 
 
@@ -157,13 +122,9 @@ margin-left:140px;
 }
 
 .content{
-
-	
 	margin-top: 3vh;
-	/*background-color:rgba(255,255,255,.1);*/
 	width:100%;
 	color:white;
-	
 	border-bottom:1px solid #333;
 	
 
@@ -185,7 +146,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1a2d2d2d', e
 	width:100%;
 	color:whitesmoke;
 	height:8vh;
-	padding:15px;
+	padding:5px 10px;
 
 
 
@@ -259,7 +220,6 @@ display:none;
 }
 
 .colourItems:hover{
-	
 	border:2px solid white !important;
 }
 
@@ -274,6 +234,7 @@ display:none;
 	-o-transition: 500ms linear 0s;
 	transition: 500ms linear 0s;
 }
+
 #colourHeading{
 	color:white;
 	 text-shadow:
@@ -285,8 +246,6 @@ display:none;
     width:35vw;
     height:100%;
     margin-left:20%;
-
-
 
     -webkit-transition: 500ms linear 0s;
 	-moz-transition: 500ms linear 0s;
@@ -420,7 +379,7 @@ background:#C01AA8;
 }
 
 
-/*stretch to full screen when in fullscreen mode*/
+
 #fscr{
 	display:none;
 
@@ -438,6 +397,8 @@ background:#C01AA8;
 	margin-top:50px;
 	
 }
+
+/*stretch to full screen when in fullscreen mode*/
 #vis:-webkit-full-screen{
   width:100%;
   height:40%;
