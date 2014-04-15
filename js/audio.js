@@ -1,4 +1,3 @@
-
 //initialise the audio and get source
 
 /*var audio = new Audio();
@@ -13,9 +12,9 @@ var player;
 
 window.addEventListener("load", initPlayer, false);
 
-function initPlayer(){
+function initPlayer() {
 
-	
+
 	/*audio.src="1.mp3"; 
 	audio.controls = true;
 	audio.loop = false;
@@ -32,7 +31,9 @@ function initPlayer(){
 	analyser.connect(context.destination);*/
 
 	$("#audioWrapper").show(1000);
-	$(".loading").text("done! play something").animate({opacity: "0.0"}, 6000);
+	$(".loading").text("done! play something").animate({
+		opacity: "0.0"
+	}, 6000);
 
 
 	context = new AudioContext();
@@ -46,160 +47,155 @@ function initPlayer(){
 
 var trackName;
 //get the source of clicked track
- $(".muzz").on("play", function(){
- 	trackName = $(this).attr("src");
- 	
- 	//stop other tracks
- 	console.log("got a source: ", trackName);
- 	$(".muzz").not(this).each(function(){
- 		$(this).get(0).pause();
- 		if(this.currentTime != 0){
- 			this.currentTime = 0;
+$(".muzz").on("play", function() {
+	trackName = $(this).attr("src");
 
- 		}
+	//stop other tracks
+	console.log("got a source: ", trackName);
+	$(".muzz").not(this).each(function() {
+		$(this).get(0).pause();
+		if (this.currentTime != 0) {
+			this.currentTime = 0;
 
- 	});
- 	
- 
-audio = null;
-
-
- 	
-
- 		
- 		audio = event.target;
-
- 		console.log(event.target);
- 		analyser = context.createAnalyser();
- 		try{
-
-	 		if(source!=null){
-	 		
-	 			
-				source = context.createMediaElementSource(audio);
-
-			}else{
-			
-				source = context.createMediaElementSource(audio);
-			}
-		}catch(err){
-			console.log(err);
 		}
-		source.connect(analyser);
-		analyser.connect(context.destination); 
-	
- 
- 
-			$("#vis").fadeIn(1000);
-			$("#fscr").fadeIn(1000);
-			console.log("play");
-			$("#colorPalette").animate({opacity:0}, 1000);
+
+	});
 
 
-		
-		letsDraw();
-		setTrackTip(trackName);
+	audio = null;
+
+
+
+	audio = event.target;
+
+	console.log(event.target);
+	analyser = context.createAnalyser();
+	try {
+
+		if (source != null) {
+
+
+			source = context.createMediaElementSource(audio);
+
+		} else {
+
+			source = context.createMediaElementSource(audio);
+		}
+	} catch (err) {
+		console.log(err);
+	}
+	source.connect(analyser);
+	analyser.connect(context.destination);
+
+
+
+	$("#vis").fadeIn(1000);
+	$("#fscr").fadeIn(1000);
+	console.log("play");
+	$("#colorPalette").animate({
+		opacity: 0
+	}, 1000);
+
+
+
+	letsDraw();
+	setTrackTip(trackName);
 
 
 
 });
 
-  $(".muzz").on("pause", function(){
-  			if(!document.webkitFullscreenElement){
+$(".muzz").on("pause", function() {
+	if (!document.webkitFullscreenElement) {
 
-			$("#vis").fadeOut(1000);
-			$("#fscr").fadeOut(1000);
-			$("#colorPalette").animate({opacity:1}, 1000);
-			
- 		
-		}	
-				
-	 window.cancelAnimationFrame(animateId);	//stop animation from looping		
-				
+		$("#vis").fadeOut(1000);
+		$("#fscr").fadeOut(1000);
+		$("#colorPalette").animate({
+			opacity: 1
+		}, 1000);
+
+
+	}
+
+	window.cancelAnimationFrame(animateId); //stop animation from looping		
+
 });
 
-function setTrackTip(trackName){
-	$("#trackTip").text("Current: " + trackName );
+function setTrackTip(trackName) {
+	$("#trackTip").text("Current: " + trackName);
 }
 
 
 //render the visualisation on the canvas
-function letsDraw(){
+function letsDraw() {
 	console.log("draw called");
 	animateId = window.requestAnimationFrame(letsDraw);
 	fbc_array = new Uint8Array(analyser.frequencyBinCount);
 	analyser.getByteFrequencyData(fbc_array); //get frequency from the analyser node
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
-	ctx.fillStyle="white";
+	ctx.fillStyle = "white";
 	ctx.font = "bold 12px Arial";
-	
-	ctx.fillText("currently playing:" + trackName, 10, 10);
-	bars =  150;
-	for(var i = 0; i < analyser.frequencyBinCount; i++){
-	
 
-  		/*fill the canvas*/
-		x = i *2;
+	ctx.fillText("currently playing:" + trackName, 10, 10);
+	bars = 150;
+	for (var i = 0; i < analyser.frequencyBinCount; i++) {
+
+
+		/*fill the canvas*/
+		x = i * 2;
 		barWidth = 1;
-		barHeight = -(fbc_array[i]/1.8); //calculate height of the bar depending on the loudness of frequency
+		barHeight = -(fbc_array[i] / 1.8); //calculate height of the bar depending on the loudness of frequency
 
 		//colours react to the  frequency loudness
 		hue = parseInt(500 * (1 - (barHeight / 200)), 10); //set hue depending on the height of bar(loudness of frequency)
-        ctx.fillStyle = 'hsl(' + hue + ',75%,50%)';
+		ctx.fillStyle = 'hsl(' + hue + ',75%,50%)';
 
 		ctx.fillRect(x, canvas.height, barWidth, barHeight);
-		
+
 	}
 
 }
 
 
 
-
-
-
 /*go fullscreen*/
-$("#fscr").on("click", function(){
+$("#fscr").on("click", function() {
 
 	var canv = document.getElementById("vis");
-	if(canv.requestFullScreen)
-        canv.requestFullScreen();
-    else if(canv.webkitRequestFullScreen)
-        canv.webkitRequestFullScreen();
-    else if(canv.mozRequestFullScreen)
-        canv.mozRequestFullScreen();
-   
- 
-    
+	if (canv.requestFullScreen)
+		canv.requestFullScreen();
+	else if (canv.webkitRequestFullScreen)
+		canv.webkitRequestFullScreen();
+	else if (canv.mozRequestFullScreen)
+		canv.mozRequestFullScreen();
+
+
+
 });
-
-
-
-
 
 
 
 /*listen to keyboard, pause on spacebar if in fullscreen, remove tip if escape*/
 $(document).keyup(function(e) {
-  	if(e.keyCode == 32 && document.webkitFullscreenElement){
-  		if(audio.paused){
-				audio.play();
-			}else{
-				audio.pause();
-			}
-  	}
+	if (e.keyCode == 32 && document.webkitFullscreenElement) {
+		if (audio.paused) {
+			audio.play();
+		} else {
+			audio.pause();
+		}
+	}
 
-	if (e.keyCode == 27) { 
-	  	$("#fullscreenTip").css("display", "none");//remove tip if escape is pressed
-	 
-	} 
+	if (e.keyCode == 27) {
+		$("#fullscreenTip").css("display", "none"); //remove tip if escape is pressed
+
+	}
 });
 
 
 /*display info on how to exit full screen*/
-$(window).on("click", function(){
-	if(document.webkitFullscreenElement){
-		if (!$("#fullscreenTip").is(':animated')){
+$(window).on("click", function() {
+	if (document.webkitFullscreenElement) {
+		if (!$("#fullscreenTip").is(':animated')) {
 			$("#fullscreenTip").dequeue().stop().fadeIn(500).delay(2000).fadeOut(500); //dequeue animation if is already animating
 		}
 
@@ -210,36 +206,32 @@ $(window).on("click", function(){
 
 
 
-
-
 //exit fullscreen on double click
 $("#vis").dblclick(function() {
 
-	
-	if(document.webkitFullscreenElement){ //exit if in fullscreen
-	$("#fullscreenTip").css("display", "none");//remove tip when exiting full screen mode
-	$("#fullscreenTip").clearQueue(); //clear the animation queue to stop the tip from appearing after a double click
-		  if(document.exitFullscreen) {
-		    document.exitFullscreen();
-		  } else if(document.mozCancelFullScreen) {
-		    document.mozCancelFullScreen();
-		  } else if(document.webkitExitFullscreen) {
-		    document.webkitExitFullscreen();
-		  }
-	}else{	//enter fullscreen on double click of the visualiser if not in fullscreen
+
+	if (document.webkitFullscreenElement) { //exit if in fullscreen
+		$("#fullscreenTip").css("display", "none"); //remove tip when exiting full screen mode
+		$("#fullscreenTip").clearQueue(); //clear the animation queue to stop the tip from appearing after a double click
+		if (document.exitFullscreen) {
+			document.exitFullscreen();
+		} else if (document.mozCancelFullScreen) {
+			document.mozCancelFullScreen();
+		} else if (document.webkitExitFullscreen) {
+			document.webkitExitFullscreen();
+		}
+	} else { //enter fullscreen on double click of the visualiser if not in fullscreen
 
 		var canv = document.getElementById("vis");
-		if(canv.requestFullScreen)
-	        canv.requestFullScreen();
-	    else if(canv.webkitRequestFullScreen)
-	        canv.webkitRequestFullScreen();
-	    else if(canv.mozRequestFullScreen)
-	        canv.mozRequestFullScreen();
-   
+		if (canv.requestFullScreen)
+			canv.requestFullScreen();
+		else if (canv.webkitRequestFullScreen)
+			canv.webkitRequestFullScreen();
+		else if (canv.mozRequestFullScreen)
+			canv.mozRequestFullScreen();
+
 
 	}
 
-	
+
 });
-
-
