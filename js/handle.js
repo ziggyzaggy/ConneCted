@@ -8,6 +8,14 @@ coloursArray[4] = "yellowColour";
 coloursArray[5] = "pinkColour";
 coloursArray[6] = "redColour";
 
+var videoGenres = {};
+videoGenres['grayColour'] = 'jazz music';
+videoGenres['blackColour'] = 'folk music';
+videoGenres['blueColour'] = 'disco music';
+videoGenres['greenColour'] = 'pop music';
+videoGenres['yellowColour'] = 'dance music';
+videoGenres['pinkColour'] = 'folk music';
+videoGenres['redColour'] = 'dubstep music';
 
 
 /*change background after certain amount of time*/
@@ -73,7 +81,8 @@ $("#goBtn").on("click", function() {
 		alert("i can't do anything if you haven't chosen a colour! no wait, i can punish you with this...");
 		window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
 	} else {
-		alert(currentColour + " yeah, that's all this button does right now, returning the id of the colour selected");
+		//alert(currentColour + " yeah, that's all this button does right now, returning the id of the colour selected");
+		searchVideo(videoGenres[currentColour]);
 	}
 });
 
