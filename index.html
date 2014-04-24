@@ -173,26 +173,25 @@
 					<button class="btn btn-danger wideBtn" id="resetBtn">Reset</button>  
 					<button class="btn btn-primary wideBtn" id="randomBtn">Randomize</button>
 					<button class="btn btn-primary wideBtn" id="fscr">Go fullscreen</button>
-					<button class="btn btn-primary wideBtn" id="goBtn">Lets Rock!</button>
+					<button class="btn btn-primary wideBtn letsrock" id="goMusic">Lets Rock!</button>
+					<button class="btn btn-primary wideBtn letsrock" id="goBtn">Lets Rock!</button>
 				</div>
 
 				<!--message showing that elements are loading-->
-				<div class="text-center loading">Loading the <a href="http://www.urbandictionary.com/define.php?term=awesomeness">Awesomeness!</a></div>
+				<div class="text-center loading"></div>
 
 				<div id="contentWrapper">
 					
 					<!--music container-->
 					<div id="audioWrapper">
 							<div id="player"></div>
-							<audio preload="none" src="https://soundcloud.com/itsmogul/zedd-find-you-mogul-remix-free/download/s-kN18N" controls="" class="muzz"></audio>
-							<audio preload="none" src="http://soundcloud.com/hantise/hans-zimmer-12-years-a-slave/download" controls="" class="muzz"></audio>
-							<audio preload="none" src="https://api.soundcloud.com/tracks/85453452/download?client_id=b45b1aa10f1ac2941910a7f0d10f8e28&oauth_token=1-16343-46075213-ea719db1deb686d" controls="" class="muzz"></audio>
-							<audio preload="none" src="https://dl.dropboxusercontent.com/sh/ucgb2340c7k8qkz/UErFdTydfp/Alex%20Weit%20vs.%20Bebe%20Rexha%20-%20Take%20me%20Home%20%28Avenjo%20Bootleg%29.mp3?dl=1&token_hash=AAE3LSzeYupRp5u6MMa_Y_IIrbIcQJlOela9oNWK0kKRdg" controls="" class="muzz"></audio>
+							<!--<audio preload="none" src="https://soundcloud.com/itsmogul/zedd-find-you-mogul-remix-free/download/s-kN18N" controls="" id="df" class="muzz"></audio>-->
+							
 					</div>
 
 					<!--video container-->
 					<div id="videoWrapper">
-						
+					
 					</div>
 
 				</div>
@@ -218,7 +217,7 @@
 
 			Powered by:
 			<a href="http://developers.soundcloud.com/"><img src="./img/soundcloud1.png" alt="SoundCloudLink">  SoundCloud</a>
-			<a href="http://developers.google.com/youtube/"><img src="./img/youtube1.png" alt="YoutubeLink"> YouTube</a>
+			<a href="https://developers.google.com/youtube/"><img src="./img/youtube1.png" alt="YoutubeLink"> YouTube</a>
 		
 		</footer>
 
@@ -228,11 +227,9 @@
 <script src="js/bootstrap.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script src="js/AudioContextMonkeyPatch.js"></script>
-<script src="https://apis.google.com/js/client.js"></script>
-<script src="js/video.js"></script>
-<script src="js/audio.js"></script>
 <script src="js/handle.js"></script>
-
+<script src="js/audio.js"></script>
+<script src="js/video.js"></script>
 </body>	
 
 </html>

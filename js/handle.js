@@ -83,6 +83,7 @@ $("#goBtn").on("click", function() {
 	} else {
 		//alert(currentColour + " yeah, that's all this button does right now, returning the id of the colour selected");
 		searchVideo(videoGenres[currentColour]);
+		console.log("asd");
 	}
 });
 
@@ -165,17 +166,17 @@ $(".tabs").on("click", function() {
 
 	if ($(this).is("#musicTab")) {
 
-		console.log("music");
 		$("#audioWrapper").show(500);
 		$("#videoWrapper").hide(500);
-
+		$("#goBtn").css("display", "none");
+		$("#goMusic").css("display", "block");		
 		$("#currentTabTitle").html("Music");
 
 	} else {
-		console.log("video");
 		$("#audioWrapper").hide(500);
 		$("#videoWrapper").show(500);
-
+		$("#goMusic").css("display", "none");
+		$("#goBtn").css("display", "block");
 		$("#currentTabTitle").html("Video");
 	}
 

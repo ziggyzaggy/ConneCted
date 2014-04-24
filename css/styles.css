@@ -138,6 +138,36 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1a2d2d2d', e
 
 
 }
+audio{
+	background-color: white;
+	border-radius: 6px;
+}
+.titles{
+	color:black;
+	width:100%;
+	font-size: 20px;
+	list-style-type: none;
+	margin-bottom:-10px;
+
+}
+.titles li{
+	
+	border:1px solid black;
+	border-bottom:0;
+	background-color: rgba(255,255,255,.5);
+	padding:2px 20px;
+	min-height:100px;
+
+}
+.errorSource{
+	background-color: rgba(0,0,0,.8);
+	font-size: 15px;
+	color:red;
+	padding:5px;
+	margin-top: 10px;
+	margin-bottom:10px;
+
+}
 
 .footer{
 
@@ -264,23 +294,25 @@ display:none;
 
 }
 
-
-
 .buttonContainer #goBtn{
+	display:none;
+}
+
+.buttonContainer .letsrock{
 	float:right;
 }
 
 
 /*media query to not let the Go button float to the right on smaller screen sizes (float right with small screen sizes looks ugly, really ugly)*/
 @media (min-width: 560px) {
-	.buttonContainer #goBtn{
+	.buttonContainer .letsrock{
 			float:right;
 		}
 
 }
 
 @media (max-width: 480px) {
-	.buttonContainer #goBtn{
+	.buttonContainer .letsrock{
 			float:none;
 		}
 
