@@ -47,6 +47,8 @@ $("#goMusic").on("click", function(){
 		window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
 	}else{
 		getGenre(genreArray[colourString]);// call method and pass the correct genre by referencing the genreArray
+		$(".loading").text("Please wait while we are fetching the best sounds right now....").css("opacity", "1");
+
 	}
 });
 
@@ -59,7 +61,6 @@ $("#goMusic").on("click", function(){
 var client = "?client_id=ddddea95338821004a98791d999c1118"; //app id for soundcloud
 function getGenre(genre){
 
-$(".loading").show().text("Please wait while we are fetching the best sounds right now....");
 
 $.getJSON("https://api.soundcloud.com/tracks?callback=?", //jquery getJson method, the standard
   {
@@ -117,12 +118,13 @@ $.getJSON("https://api.soundcloud.com/tracks?callback=?", //jquery getJson metho
         $(elem).get(0).addEventListener("loadeddata", function(){//start tracks and pause once tracks are loaded to force chrome to buffer the tracks
     		this.play();
     		this.pause();
-
+    		$(".loading").text("done! play something").animate({opacity: "0.0"}, 6000);//show a cool looking message to inform users
     		setTimeout(function(){//set a delay to allow all music to play through and force buffering
 				$("#audioWrapper").show(1000); //show wrapper when loading done
-				$(".loading").text("done! play something").animate({opacity: "0.0"}, 6000);//show a cool looking message to inform users
+				
 				$(document).click();//remove the chooserborder by clicking anywhere on body
     		}, 1000);
+    		
     		
 		});
 

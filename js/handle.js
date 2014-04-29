@@ -74,7 +74,16 @@ $(".colourItems").on("click", function(e) {
 
 });
 
+$("#resetBtn").on("click", function(){ //enable the users to choose again
 
+	if($("#colorPalette").css("opacity") == "0"){
+		$("#vis").fadeOut(1000);
+		$("#fscr").fadeOut(1000);
+		$("#colorPalette").animate({opacity:1}, 1000);
+		window.cancelAnimationFrame(animateId);
+	}
+
+});
 
 $("#goBtn").on("click", function() {
 	if (currentColour == "choose a colour!") {
