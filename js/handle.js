@@ -9,13 +9,13 @@ coloursArray[5] = "pinkColour";
 coloursArray[6] = "redColour";
 
 var videoGenres = {};
-videoGenres['grayColour'] = 'jazz music';
-videoGenres['blackColour'] = 'folk music';
-videoGenres['blueColour'] = 'disco music';
-videoGenres['greenColour'] = 'pop music';
-videoGenres['yellowColour'] = 'dance music';
-videoGenres['pinkColour'] = 'folk music';
-videoGenres['redColour'] = 'dubstep music';
+videoGenres['grayColour'] = 'blues music';
+videoGenres['blackColour'] = 'metal music';
+videoGenres['blueColour'] = 'chillstep music';
+videoGenres['greenColour'] = 'reggae music';
+videoGenres['yellowColour'] = 'techno music';
+videoGenres['pinkColour'] = 'pop music';
+videoGenres['redColour'] = 'house music';
 
 
 /*change background after certain amount of time*/
