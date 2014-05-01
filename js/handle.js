@@ -74,12 +74,14 @@ $(".colourItems").on("click", function(e) {
 
 });
 
-$("#resetBtn").on("click", function(){ //enable the users to choose again
+$("#resetBtn").on("click", function() { //enable the users to choose again
 
-	if($("#colorPalette").css("opacity") == "0"){
+	if ($("#colorPalette").css("opacity") == "0") {
 		$("#vis").fadeOut(1000);
 		$("#fscr").fadeOut(1000);
-		$("#colorPalette").animate({opacity:1}, 1000);
+		$("#colorPalette").animate({
+			opacity: 1
+		}, 1000);
 		window.cancelAnimationFrame(animateId);
 	}
 
@@ -178,7 +180,7 @@ $(".tabs").on("click", function() {
 		$("#audioWrapper").show(500);
 		$("#videoWrapper").hide(500);
 		$("#goBtn").css("display", "none");
-		$("#goMusic").css("display", "block");		
+		$("#goMusic").css("display", "block");
 		$("#currentTabTitle").html("Music");
 
 	} else {
